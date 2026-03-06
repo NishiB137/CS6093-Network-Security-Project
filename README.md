@@ -23,7 +23,11 @@ CS6093 Network Security Project - Transactiwar
    
     If connection and set up is right, a successful message will be printed.
 
-5. **Helpful CommandsStop the application:**
+5. **Helpful Commands**
+    - Stop the Application:
+         ```
+         sudo docker compose down
+         ```
     - Wipe the database and start fresh:
    
         If you change your .env database credentials or update the init.sql schema, you must destroy the Docker volume to force PostgreSQL to initialize everything again. Run the following commands:   
