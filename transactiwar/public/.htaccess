@@ -1,5 +1,19 @@
 RewriteEngine On
 
+# Block direct access to any .php file other than index.php
+# Attackers use gobuster to find backup files like config.php.bak, test.php, etc.
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_FILENAME} \.php$
+RewriteCond %{REQUEST_URI} !^/index\.php$
+RewriteRule ^ - [F,L]
+
+# Block access to dotfiles (.env, .git, .htaccess itself)
+RewriteRule (^|/)\. - [F,L]
+
+# Block access to common backup/temp file extensions gobuster looks for
+RewriteRule \.(bak|old|orig|tmp|swp|sql|log|zip|tar|gz)$ - [F,L]
+
+# Route everything else through index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 

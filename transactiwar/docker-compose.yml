@@ -4,12 +4,14 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile
     ports:
-      - "8000:80"
+      - "8000:443"
     volumes:
       # Maps your entire project so PHP can read the 'src' folder
-      - ./:/var/www/html 
+      - ./:/var/www/html/
     env_file:
       - .env
+    environment:
+      - TZ=Asia/Kolkata
     depends_on:
       - db
 
@@ -18,13 +20,13 @@ services:
     restart: always
     env_file:
       - .env
+    environment:
+      - TZ=Asia/Kolkata
     volumes:
       # Saves DB data permanently on your laptop
       - pgdata:/var/lib/postgresql/data
       # Runs your setup scripts on first boot
       - ./database:/docker-entrypoint-initdb.d
-    ports:
-      - "5434:5432"
 
 volumes:
   pgdata:
