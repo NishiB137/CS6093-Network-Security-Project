@@ -56,4 +56,52 @@ class AuthController {
         }
     }
 
+
+    public static function login($pdo){
+
+        verify_csrf();
+        rotate_csrf();
+
+        try {
+
+            $webpage = $_SERVER['REQUEST_URI'];
+            $ip      = $_SERVER['REMOTE_ADDR'];
+            RateLimiter::checkAndRecord($pdo, '-', 'login_attempt', $webpage, $ip, 5, 60);
+
+            $user = AuthService::login(
+                $pdo,
+                $_POST['email'] ?? '',
+                $_POST['password'] ?? ''
+            );
+
+            session_regenerate_id(true);
+
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+
+            $_SESSION['login_time'] = time();
+            $_SESSION['last_activity'] = time();
+
+            ActivityLogger::db_log($pdo, "login_success");
+            ActivityLogger::server_log(level: "INFO", eventType: "login_success");
+            
+            header("Location: /home");
+            exit();
+
+        } catch(Exception $e){
+
+            $email = Sanitizer::escape($_POST["email"]) ?? "";
+            $reason = Sanitizer::escape($e->getMessage());
+            ActivityLogger::server_log(
+                level: "WARN",
+                eventType: "login_failed",
+                arguments: "email=$email, reason=$reason"
+            );
+            $_SESSION["error"] = $reason;
+            header("Location: /login");
+            
+            exit();
+        }
+    }
+
 }
