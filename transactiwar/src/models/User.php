@@ -68,6 +68,28 @@ class User {
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    
 
+    public static function findPublicByUsername($pdo, $username) {
+        $stmt = $pdo->prepare("
+            SELECT id, username, email, balance, bio, profile_image_path, created_at
+            FROM users WHERE username = :username
+        ");
+        $stmt->execute(['username' => $username]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
+    public static function updateProfile($pdo, $id, $bio, $profileImagePath){
+        $stmt = $pdo->prepare("
+            UPDATE users 
+            SET bio = :bio, 
+                profile_image_path = :profile_image_path
+            WHERE id = :id
+        ");
+        return $stmt->execute([
+            'id' => $id,
+            'bio' => $bio,
+            'profile_image_path' => $profileImagePath
+        ]);
+    }
 }
