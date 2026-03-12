@@ -1,0 +1,244 @@
+/* =========================================
+   1. Global Reset & Base Styles
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6; /* Soft light gray background */
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. Header & Navigation
+   ========================================= */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow below header */
+    position: sticky; /* Keeps the header at the top when scrolling */
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the navigation links */
+    padding: 15px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px; /* Adds perfect spacing between links */
+}
+
+/* =========================================
+   3. Navigation Links
+   ========================================= */
+nav a {
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease; /* Smooth hover animation */
+}
+
+nav a:hover {
+    color: #2b6cb0; /* Deep blue text on hover */
+    background-color: #edf2f7; /* Light blue background on hover */
+}
+
+/* =========================================
+   4. Logout Form & Button
+   ========================================= */
+nav form {
+    margin-left: 10px;
+}
+
+nav button {
+    background-color: #e53e3e; /* Nice red color for logout */
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+nav button:hover {
+    background-color: #c53030; /* Darker red on hover */
+}
+
+nav button:active {
+    transform: scale(0.97); /* Small click effect */
+}
+
+
+
+/* =========================================
+   7. Search Page Styles
+   ========================================= */
+
+/* Title & Alerts */
+.page-title {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 20px;
+}
+
+.alert {
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.alert-error {
+    background-color: #fff5f5;
+    color: #c53030;
+    border-left: 4px solid #e53e3e;
+}
+
+/* Search Form */
+.search-form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+.search-input {
+    flex: 1; /* Makes the search bar take up remaining space */
+    padding: 10px 15px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+    border-color: #4299e1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2); /* Soft blue glow when typing */
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #4299e1;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2b6cb0;
+}
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: #4a5568;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e0;
+}
+
+/* Divider & Empty States */
+.divider {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 25px 0;
+}
+
+.empty-state {
+    color: #718096;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* User List & Cards */
+.user-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spaces out the cards perfectly */
+}
+
+.user-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-card:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.user-card-content {
+    display: flex;
+    align-items: center;
+}
+
+/* Avatars */
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #e2e8f0;
+}
+
+.user-avatar-placeholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #edf2f7;
+    color: #a0aec0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-right: 15px;
+    border: 2px solid #e2e8f0;
+}
+
+/* User Info Text */
+.user-info strong {
+    font-size: 1.1rem;
+    color: #2d3748;
+}
+
+.view-profile-link {
+    color: #4299e1;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.view-profile-link:hover {
+    text-decoration: underline;
+    color: #2b6cb0;
+}

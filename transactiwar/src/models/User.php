@@ -60,6 +60,25 @@ class User {
         $stmt->execute([$userId]);
     }
 
+     public static function findById($pdo, $id){
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+     public static function findByUsername($pdo, $username){
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+        $stmt->execute(['username' => $username]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public static function searchExactUsername($pdo, $username){
+        $stmt = $pdo->prepare("SELECT id, username, profile_image_path FROM users WHERE username = :username");
+        $stmt->execute(['username' => $username]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); // Returns array of matches
+    }
+    
+
     public static function findPublicById($pdo, $id) {
         $stmt = $pdo->prepare("
             SELECT id, username, email, balance, bio, profile_image_path, created_at
