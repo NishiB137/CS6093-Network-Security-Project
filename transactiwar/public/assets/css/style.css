@@ -81,6 +81,18 @@ nav button:active {
 }
 
 
+/* =========================================
+   5. Main Content Container (Optional)
+   ========================================= */
+/* You can wrap your page content in a <main class="container"> */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
 
 /* =========================================
    7. Search Page Styles
@@ -242,3 +254,197 @@ nav button:active {
     text-decoration: underline;
     color: #2b6cb0;
 }
+
+/* =========================================
+   8. Form & Pay Page Styles
+   ========================================= */
+
+/* Success Alert (To complement the error alert we made earlier) */
+.alert-success {
+    background-color: #f0fff4;
+    color: #2f855a;
+    border-left: 4px solid #48bb78;
+}
+
+/* Form Container Card */
+.form-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 500px; /* Keeps the form from getting too wide on large screens */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin: 0 auto;
+}
+
+/* Spacing between inputs */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* Inputs & Textareas */
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #2d3748;
+    background-color: #f7fafc;
+    transition: all 0.2s ease;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+/* Focus state for inputs */
+.form-control:focus {
+    border-color: #4299e1;
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+/* Ensure textarea isn't resizable horizontally to break layout */
+textarea.form-control {
+    resize: vertical;
+}
+
+/* Full-width Button for the form */
+.btn-block {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* =========================================
+   9. Authentication Pages (Login / Register)
+   ========================================= */
+
+/* Make the login/register container narrower for a better look */
+.auth-container {
+    max-width: 450px; 
+    margin-top: 80px; /* Pushes the form down beautifully into the center of the screen */
+}
+
+/* Utility classes for centering */
+.text-center {
+    text-align: center;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Styling for the footer area containing the Sign Up link */
+.auth-footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #4a5568;
+    border-top: 1px solid #e2e8f0; /* Adds a nice subtle separator line */
+}
+
+.auth-link {
+    color: #4299e1;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.auth-link:hover {
+    color: #2b6cb0;
+    text-decoration: underline;
+}
+
+/* =========================================
+   10. Transaction History Table
+   ========================================= */
+
+/* Small balance card above the table */
+.balance-summary-card {
+    margin-bottom: 25px;
+    padding: 15px 25px;
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.balance-summary-card h3 {
+    margin: 0;
+    color: #2d3748;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Table Container (Allows horizontal scrolling on mobile phones) */
+.table-responsive {
+    overflow-x: auto;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* The Table */
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse; /* Removes the old HTML cellspacing spacing */
+    text-align: left;
+    white-space: nowrap; /* Prevents text from squishing weirdly on small screens */
+}
+
+/* Table Cells */
+.transaction-table th, 
+.transaction-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Table Header */
+.transaction-table th {
+    background-color: #edf2f7;
+    color: #4a5568;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+/* Remove bottom border from the very last row so it looks clean */
+.transaction-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Row Hover Effect */
+.transaction-table tbody tr:hover {
+    background-color: #f7fafc;
+    transition: background-color 0.2s ease;
+}
+
+/* Dynamic Color Utilities for Sent/Received Amounts */
+.text-danger {
+    color: #e53e3e; /* Modern, softer red */
+}
+
+.text-success {
+    color: #38a169; /* Modern, crisp green */
+}
+
+.fw-bold {
+    font-weight: 700;
+}
+
+
