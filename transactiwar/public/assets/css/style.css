@@ -80,7 +80,6 @@ nav button:active {
     transform: scale(0.97); /* Small click effect */
 }
 
-
 /* =========================================
    5. Main Content Container (Optional)
    ========================================= */
@@ -92,6 +91,54 @@ nav button:active {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================
+   6. Dashboard Elements (Home Page)
+   ========================================= */
+
+/* Make the welcome text look friendly and modern */
+.welcome-text {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.welcome-text span {
+    color: #2b6cb0; /* Highlights the username in your theme's blue */
+}
+
+/* Style the balance as a modern financial 'card' */
+.balance-card {
+    background: linear-gradient(135deg, #4299e1 0%, #2b6cb0 100%);
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 12px; /* Smooth rounded corners */
+    box-shadow: 0 10px 20px rgba(43, 108, 176, 0.2); /* Soft blue glowing shadow */
+    max-width: 400px; /* Prevents it from stretching across the whole screen */
+    transition: transform 0.3s ease; /* Smooth hover effect setup */
+}
+
+/* Optional: Slight lift effect when hovering over the balance */
+.balance-card:hover {
+    transform: translateY(-5px);
+}
+
+.balance-card h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9; /* Makes the heading slightly softer than the actual money amount */
+}
+
+.balance-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Makes the text crisp against the gradient */
 }
 
 /* =========================================
@@ -447,4 +494,86 @@ textarea.form-control {
     font-weight: 700;
 }
 
+/* =========================================
+   11. Profile Page Styles
+   ========================================= */
 
+/* Constrain the profile width so it doesn't look stretched on big screens */
+.profile-container {
+    max-width: 600px;
+}
+
+/* Center the profile image */
+.profile-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* Profile Image & Placeholder Styling */
+.profile-photo,
+.profile-photo-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Modern perfect circle */
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 4px solid #ffffff; /* Gives it a clean pop against the background */
+}
+
+.profile-photo-placeholder {
+    background-color: #edf2f7;
+    color: #a0aec0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Own Profile Detail Card */
+.user-details-card {
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.user-details-card p {
+    margin-bottom: 10px;
+    color: #4a5568;
+    font-size: 1.05rem;
+}
+
+.user-details-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Tweak for file input to sit nicely inside the form-control styles */
+.file-input {
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+/* Styling for someone else's bio view */
+.bio-section {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.bio-label {
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.bio-text {
+    color: #4a5568;
+    line-height: 1.7;
+}
