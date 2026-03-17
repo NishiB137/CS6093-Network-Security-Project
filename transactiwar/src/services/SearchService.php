@@ -38,4 +38,8 @@ class SearchService {
 
         return $results;
     }
+
+    public static function getAllUsers($pdo) {
+        return User::getAllUsers($pdo);
+    }
 }

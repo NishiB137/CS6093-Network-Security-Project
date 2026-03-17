@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile
     ports:
-      - "8000:443"
+      - "443:443"
     volumes:
       # Maps your entire project so PHP can read the 'src' folder
       - ./:/var/www/html/

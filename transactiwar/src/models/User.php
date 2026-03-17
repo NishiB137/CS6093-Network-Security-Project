@@ -111,4 +111,10 @@ class User {
             'profile_image_path' => $profileImagePath
         ]);
     }
+
+    public static function getAllUsers($pdo) {
+        $stmt = $pdo->prepare("SELECT id, username, profile_image_path FROM users ORDER BY username ASC");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    }
 }

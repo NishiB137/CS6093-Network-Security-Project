@@ -37,11 +37,16 @@ if (!empty($_SESSION['error'])) {
 
 <hr class="divider">
 
-<?php if ($searchQuery === ''): ?>
-    <p class="empty-state">Enter an exact username to search for a user.</p>
-<?php elseif (empty($users) && empty($rateLimitError)): ?>
-    <p class="empty-state">No user found with that exact username.</p>
+<?php if (empty($users) && empty($rateLimitError)): ?>
+    <?php if ($searchQuery === ''): ?>
+        <p class="empty-state">No users are currently registered.</p>
+    <?php else: ?>
+        <p class="empty-state">No user found with that exact username.</p>
+    <?php endif; ?>
 <?php elseif (!empty($users)): ?>
+    <?php if ($searchQuery === ''): ?>
+        <h3 class="section-subtitle" style="margin-bottom: 15px; color: #4a5568;">All Users</h3>
+    <?php endif; ?>
     <ul class="user-list">
         <?php foreach ($users as $u): ?>
             <li class="user-card">

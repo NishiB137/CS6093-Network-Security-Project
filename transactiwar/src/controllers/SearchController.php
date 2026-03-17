@@ -26,15 +26,18 @@ class SearchController {
             'error' => ''
         ];
 
-        if ($searchQuery !== '') {
-            try {
+        try {
+            if ($searchQuery !== '') {
+                // If there's a search query, perform the exact search
                 $result['users'] = SearchService::performSearch($pdo, $searchQuery, $ipAddress);
-            } catch (Exception $e) {
-                $_SESSION["error"] = Sanitizer::escape($e->getMessage() ??"");
-                header("Location: /search");
-
-                exit();
+            } else {
+                // If the search query is empty, get all users
+                $result['users'] = SearchService::getAllUsers($pdo);
             }
+        } catch (Exception $e) {
+            $_SESSION["error"] = Sanitizer::escape($e->getMessage() ?? "");
+            header("Location: /search");
+            exit();
         }
 
         return $result;
